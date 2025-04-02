@@ -1,0 +1,67 @@
+<head>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <script>
+        function toggleNav() {
+            let sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar sticky-top">
+        <div class="nav-left">
+            <ul class="nav-links">
+                <a href="/listing">
+                    <li><i class="fa-regular fa-compass"></i></li>
+                </a>
+                <a href="/listing">
+                    <li>All Listings</li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="nav-center">
+            <form class="search-form" role="search" method="post" action="/listing/country">
+                <input class="search-input" name="query" type="search" placeholder="Search Listings" aria-label="Search">
+                <button class="search-button" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                </button>
+            </form>
+        </div>
+
+        <div class="nav-right">
+            <a href="/listing/new">
+                <li>Add New Listing</li>
+            </a>
+            <% if (user) { %>
+                <a href="/logout" class="nav-button">Logout</a>
+            <% } else { %>
+                <a href="/login" class="nav-button">Login</a>
+                <a href="/signup" class="nav-button">Signup</a>
+            <% } %>
+        </div>
+
+        <!-- Menu Icon for Sidebar -->
+        <span class="menu-icon" onclick="toggleNav()">
+            <i class="fa-solid fa-bars"></i>
+        </span>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="/listing" style="margin-top: 35px;">All Listings</a>
+        <a href="/listing/new">Add New Listing</a>
+        <% if (user) { %>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+        <% } %>
+    </div>
+</body>

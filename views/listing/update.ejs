@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+
+    <head>
+        <link rel="stylesheet" href="/css/update.css">
+    </head>
+
+
+    <body>
+        <div class="form-wrapper">
+            <h1 class="form-title">Update Post</h1>
+            <form action="/listing/<%= list._id %>/edit" enctype="multipart/form-data" method="post"
+                class="listing-form needs-validation" novalidate>
+                <div class="form-field">
+                    <label for="title">Title:</label>
+                    <input type="text" name="listing[title]" placeholder="Title" value="<%= list.title %>"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="description">Description:</label>
+                    <input type="text" name="listing[description]" placeholder="Description"
+                        value="<%= list.description %>" class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="image">Upload New Image :</label>
+                    <input type="file" name="listing[image]" placeholder="Enter Image URL"
+                        class="form-input form-control">
+                </div>
+
+                <div class="form-field-container">
+                    <div class="form-field">
+                        <label for="price">Price:</label>
+                        <input type="text" name="listing[price]" placeholder="Price" value="<%= list.price %>"
+                            class="form-input form-control" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="location">Location:</label>
+                        <input type="text" name="listing[location]" placeholder="Location" value="<%= list.location %>"
+                            class="form-input form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="country">Country:</label>
+                    <input type="text" name="listing[country]" placeholder="Country" value="<%= list.country %>"
+                        class="form-input form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>

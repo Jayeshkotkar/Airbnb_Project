@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate") %>
+
+    <head>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/icon.css">
+    </head>
+
+        <body>
+            <form action="/listing">
+            <div class="filters">
+                    <div class="filter">
+                        <button name="query">
+                            <i class="fa-solid fa-mountain"></i>
+                        <p name="query">Mountain</p>
+                        </button>
+                    </div>
+    
+                    <div class="filter">
+                       <button>
+                         <i class="fa-solid fa-umbrella-beach"></i>
+                        <p>Beach</p>
+                       </button>
+                    </div>
+    
+                    <div class="filter">
+                        <button>
+                            <i class="fa-solid fa-landmark"></i>
+                        <p>Historic</p>
+                        </button>
+                    </div>
+    
+                    <div class="filter">
+                        <button>
+                            <i class="fa-solid fa-snowflake"></i>
+                        <p>Snow</p>
+                        </button>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <hr>
+
+
+            <div class="listing-container">
+                <% for(let list of allListing) { %>
+                    <a href="/listing/<%=list._id%>" class="listing-link">
+                        <div class="listing-card">
+                            <img src="<%= list.image.url %>" alt="<%= list.title %>" class="listing-image">
+                            <div class="listing-info">
+                                <b>
+                                    <p class="listing-title">
+                                        <%= list.title %>
+                                    </p>
+                                </b>
+                                <p class="listing-price">&#8377; <%= list.price ? list.price.toLocaleString("en-IN")
+                                        : "price not available" %> / Day
+                                </p>
+
+                            </div>
+                        </div>
+                    </a>
+                    <% } %>
+            </div>
+        </body>

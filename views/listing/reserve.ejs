@@ -1,0 +1,50 @@
+<% layout("/layouts/boilerplate") %>
+
+<head>
+    <link rel="stylesheet" href="/css/reserve.css">
+</head>
+
+<!-- /listing/<%=list._id%>/reserve -->
+
+    <body>
+        <div class="form-wrapper">
+            <h1 class="form-title">Book Now</h1>
+            <form action="mailto:jayeshkotkar01@gmail.com" method="post"
+                class="listing-form needs-validation" novalidate>
+                <div class="form-field">
+                    <label for="title">Listing</label>
+                    <input type="text" name="listing[title]" placeholder="Title" value="<%=list.title%>"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="name">Enter Your Full Name:</label>
+                    <input type="text" name="listing[name]" placeholder="Enter Your Full Name"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="mobile">Mobile no:</label>
+                    <input type="number" name="listing[number]" placeholder="Enter Mobile no"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="email" name="listing[email]" placeholder="Enter Email"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="payment">Payment Method *</label>
+                    <select id="payment" name="listing[payment]" class="form-input form-control" required>
+                        <option value="cod" <%= list.payment === 'cod' ? 'selected' : '' %>>Cash on Delivery</option>
+                    </select>
+                </div> 
+
+                
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>

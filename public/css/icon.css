@@ -1,0 +1,42 @@
+.filters {
+    display: flex;
+    justify-content: space-around; /* Distributes items evenly */
+    width: 100%; /* Takes full width of the screen */
+    padding: 15px;
+    padding-bottom: 0px;
+    /* margin-bottom: 0px; */
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    padding-bottom: 0px;
+    transition: all 0.3s ease;
+    flex: 1; /* Ensures even spacing */
+    text-align: center;
+}
+
+.filter button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.filter button i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.filter:hover button, .filter.active button {
+    color: #ffcc00;
+    transform: scale(1.1);
+}

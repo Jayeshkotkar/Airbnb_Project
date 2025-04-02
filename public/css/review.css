@@ -1,0 +1,91 @@
+.reviews-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book{
+    background-color: #fe424d !important;
+}
+
+.reviews-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Grid layout for reviews */
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two reviews per row */
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.review-item {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Adjust width to fit two reviews per row */
+    margin: 0 auto; /* Center align in grid */
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.review-rating {
+    font-size: 1.2rem;
+    color: #ffa500;
+    font-weight: bold;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+.user-icon {
+    margin-right: 8px;
+    color: #555;
+}
+
+.review-comment {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.delete-form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reviews-list {
+        grid-template-columns: repeat(1, 1fr); /* One review per row on smaller screens */
+    }
+}
