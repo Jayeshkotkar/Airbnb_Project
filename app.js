@@ -14,6 +14,7 @@ const { listingSchema, reviewSchema } = require("./schema.js");         // serve
 const bodyParser = require('body-parser');
 const session = require("express-session");          // session 
 const flash = require("connect-flash");                 // flash messages
+const helmet = require("helmet");
 
 const { isLogined, saveRedirectUrl, isReviewAuthor, validateListing, validateReview } = require("./middleware.js");
 
@@ -43,6 +44,27 @@ const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://unpkg.com", "https://cdnjs.cloudflare.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://unpkg.com", "https://cdnjs.cloudflare.com"],
+            imgSrc: [
+                "'self'",
+                "data:",
+                "https://images.unsplash.com",
+                "https://plus.unsplash.com",
+                "https://*.basemaps.cartocdn.com",
+                "https://*.tile.openstreetmap.org"
+            ],
+            fontSrc: ["'self'", "https://cdnjs.cloudflare.com", "data:"],
+            connectSrc: ["'self'"],
+            objectSrc: ["'none'"],
+            frameAncestors: ["'self'"]
+        }
+    }
+}));
 
 app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key',  // Use env in production
