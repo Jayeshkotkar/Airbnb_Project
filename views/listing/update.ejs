@@ -1,0 +1,177 @@
+<% layout("/layouts/boilerplate") %>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Form Wrapper */
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            /* Set the width to 90% of the page */
+            max-width: 1000px;
+            /* Optional: Set a max-width for very large screens */
+            margin: 0 auto;
+            /* Center the form */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Title */
+        .form-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form Field Wrapper for Spacing */
+        .form-field {
+            width: 100%;
+            margin-bottom: 15px;
+            /* Space between fields */
+        }
+
+        .form-field-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            /* Increased gap between Price and Location */
+        }
+
+        .listing-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .listing-form label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        /* Button Styles */
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-wrapper {
+                width: 95%;
+                /* Slightly wider on mobile */
+                padding: 15px;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
+            }
+
+            .form-input {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            /* For mobile, stack Price and Location fields in separate rows */
+            .form-field-container {
+                flex-direction: column;
+                /* Stack the fields in separate rows */
+            }
+
+            .form-field {
+                margin-bottom: 10px;
+                /* Reduced margin for mobile */
+            }
+        }
+    </style>
+
+    <body>
+        <div class="form-wrapper">
+            <h1 class="form-title">Update Post</h1>
+            <form action="/listing/<%= list._id %>/edit" enctype="multipart/form-data" method="post"
+                class="listing-form needs-validation" novalidate>
+                <div class="form-field">
+                    <label for="title">Title:</label>
+                    <input type="text" name="listing[title]" placeholder="Title" value="<%= list.title %>"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="description">Description:</label>
+                    <input type="text" name="listing[description]" placeholder="Description"
+                        value="<%= list.description %>" class="form-input form-control" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="image">Upload New Image :</label>
+                    <input type="file" name="listing[image]" placeholder="Enter Image URL"
+                        class="form-input form-control" required>
+                </div>
+
+                <div class="form-field-container">
+                    <div class="form-field">
+                        <label for="price">Price:</label>
+                        <input type="text" name="listing[price]" placeholder="Price" value="<%= list.price %>"
+                            class="form-input form-control" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="location">Location:</label>
+                        <input type="text" name="listing[location]" placeholder="Location" value="<%= list.location %>"
+                            class="form-input form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="country">Country:</label>
+                    <input type="text" name="listing[country]" placeholder="Country" value="<%= list.country %>"
+                        class="form-input form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>

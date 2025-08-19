@@ -1,0 +1,231 @@
+   /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .listing-details-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .listing-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.05);
+        }
+
+        .listing-content {
+            flex: 2;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .listing-title {
+            font-size: 2.4rem;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .listing-content p {
+            margin: 10px 0;
+        }
+
+        .listing-content strong {
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        /* Buttons Section */
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .btn-update {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-update:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+
+        .btn-back {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .listing-details-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .listing-title {
+                font-size: 1.8rem;
+            }
+
+            .listing-content {
+                font-size: 1rem;
+            }
+
+            .post-image {
+                height: 250px;
+                /* Reduce image height for smaller screens */
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                /* Stack buttons vertically on small screens */
+                gap: 15px;
+                /* Add space between stacked buttons */
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 8px 15px;
+                width: 100%;
+                /* Make buttons full width on smaller screens */
+            }
+        }
+
+        .review-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-section h4 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+            color: #007bff;
+        }
+
+        input[type="range"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        button.submit-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button.submit-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .review-section {
+                padding: 15px;
+            }
+
+            .review-section h4 {
+                font-size: 1.4rem;
+            }
+
+            input[type="range"],
+            textarea {
+                font-size: 0.85rem;
+            }
+
+            button.submit-btn {
+                font-size: 13px;
+                padding: 8px 16px;
+            }
+        }
